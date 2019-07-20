@@ -20,13 +20,6 @@ public class Couplage {
 	
 		Graphe graphe = creetReseau("data.txt");
 		
-		//Affichage du graphe
-		
-		System.out.println("Graphe :");
-		System.out.println("--------------");
-		
-		graphe.afficheGraphe();
-		
 		System.out.println();
 		
 		//Affichage du chemin BFS

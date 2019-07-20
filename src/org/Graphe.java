@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
+import javas.systems.Systems;
 /*
  * @Steven Cib.
 */
@@ -38,7 +40,6 @@ public class Graphe {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 	public List<Noeud> neihghtbours(int index){
@@ -221,24 +222,14 @@ public class Graphe {
 			int num = i + 1;
 			System.out.println("|-> La tâche numéro : " + num + " sera effectué par la personne " + getPositionNoeud(personne, couplage[i]) + " |");
 		}
-		System.out.println("---------------------------------------------------------");			
-		return nbrSucceur;
-	}
-	//Cette methode permet d afficher le graphe
-	public void afficheGraphe() {
-    
-		for(int i = 0; i < noeuds.length; i++) {
-			
-			List<Noeud> edges = neihghtbours(i);
-			
-			System.out.print( i + " : ");
-			
-			for(int j = 0; j < edges.size(); j++) {
-				
-				System.out.print((edges.get(j).getId() != -1)? edges.get(j).getId() + " " : "");
-			}
-			System.out.print("\n");
+		System.out.println("---------------------------------------------------------");
+		boolean sign = Systems.system();
+		if(sign) {
+			/*
+			 * 
+			 */
 		}
+		return nbrSucceur;
 	}
 	/* Etant donné que une personne a droit d'effectuer juste une tache;
 	 * Cette methode verifie si une tache est deja affecter à une personne 			@Steven Cib.
