@@ -5,45 +5,43 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
-import javas.systems.Systems;
 /*
  * @Steven Cib.
 */
-public class Graphe {
-	
+public class Graphe 
+{	
 	private int nbNoeuds;
 	private int nbrVertex;
 	protected Noeud[][] noeuds;
 	
-	public Graphe(Noeud[][] nds, int nbrVertex) {
-		
+	public Graphe(Noeud[][] nds, int nbrVertex) 
+	{	
 		this.noeuds = nds;
 		this.nbrVertex = nbrVertex;
 		this.nbNoeuds = noeuds.length;
 	}
-	//On verifie si la personne a choisie toutes les taches ou non
-	public boolean isNoeud(int i, int j) {
-		
-		if(noeuds[i][j].getId() >= 0) {
-			
+	//Check if the person choosed all tasks or not
+	public boolean isNoeud(int i, int j) 
+	{	
+		if(noeuds[i][j].getId() >= 0) 
+		{
 			return true;
 		}
 		return false;
 	}
-	public boolean isExist(int line, Noeud noeud) {
-		
-		for(int i = 0; i < nbrVertex; i++) {
-			
-			if(noeuds[line][i].getId() == noeud.getId()) {
-				
+	public boolean isExist(int line, Noeud noeud) 
+	{	
+		for(int i = 0; i < nbrVertex; i++) 
+		{	
+			if(noeuds[line][i].getId() == noeud.getId()) 
+			{	
 				return true;
 			}
 		}
 		return false;
 	}
-	public List<Noeud> neihghtbours(int index){
-		
+	public List<Noeud> neihghtbours(int index)
+	{	
 		List<Noeud> edge = new ArrayList<Noeud>();
 		
 		for(int i = 0; i < nbrVertex; i++)
@@ -51,8 +49,8 @@ public class Graphe {
 				edge.add(new Noeud(noeuds[index][i].getId()));
 		return edge;
 	}
-	public List<Noeud> index(Noeud noeud){
-		
+	public List<Noeud> index(Noeud noeud)
+	{	
 		List<Noeud> edge = new ArrayList<Noeud>();
 		
 		for(int i = 0; i < noeuds.length; i++)
@@ -64,8 +62,8 @@ public class Graphe {
 	/*
 	 *@Steven Cib.
 	*/
-	//Cette methode retourne le parcours en largeur de la source au puits
-	public LinkedList<Noeud> cheminBFS(Noeud source, Noeud puits){
+	//this method return the BFS from source to puits
+	public LinkedList<Noeud> pathBFS(Noeud source, Noeud puits){
 		
 		boolean vue[] = new boolean[noeuds.length];
 		
@@ -85,16 +83,15 @@ public class Graphe {
 		queu.add(source);
 		courtChemin.add(source);
 		
-		//On parcourt tous les autres noeuds 
+		//we through all others nodes
 		while(!queu.isEmpty()) {
 				
 			source = queu.poll();		
 			
-			//On verifie les successeurs du noeud actuel
+			//we checked the successors of current node
 			for(Noeud index : neihghtbours(source.getId())) {
 						
-			//S'il n'est pas encore visite on le visite même chose pour ses voisins
-			
+			//if it's not visited yet, we visit it, we do the same for his neighbors
 				if(vue[index.getId()] == false){
 						
 					vue[index.getId()] = true;
@@ -112,9 +109,8 @@ public class Graphe {
 	/*
 	 *@ Steven Cib.
 	*/
-	//Cette methode verifier si le parcours en largeur peut être inverser donce du puit à la source
-	
-	public boolean inverseChemin(LinkedList<Noeud> chemin) {
+	//this method check if the path BFS can be inverted, that's means from puit to source node
+	public boolean pathInvert(LinkedList<Noeud> chemin) {
 		
 		boolean isExist = false;
 		
@@ -177,11 +173,11 @@ public class Graphe {
 	public int ff(Noeud s, Noeud t) {
 		
 		int flot_max = 0;
-		LinkedList<Noeud> cheminBfs = new LinkedList<Noeud>();
-		cheminBfs = cheminBFS(s, t);
+		LinkedList<Noeud> pathBfs = new LinkedList<Noeud>();
+		pathBfs = pathBFS(s, t);
 		
-		List<Noeud> tache = index(cheminBfs.getLast());
-		List<Noeud> personne  = neihghtbours(cheminBfs.getFirst().getId());
+		List<Noeud> tache = index(pathBfs.getLast());
+		List<Noeud> personne  = neihghtbours(pathBfs.getFirst().getId());
 		
 		//le nombre de successeurs du noeud puit
 		int nbrSucceur = tache.size();		
@@ -223,12 +219,7 @@ public class Graphe {
 			System.out.println("|-> La tâche numéro : " + num + " sera effectué par la personne " + getPositionNoeud(personne, couplage[i]) + " |");
 		}
 		System.out.println("---------------------------------------------------------");
-		boolean sign = Systems.system();
-		if(sign) {
-			/*
-			 * 
-			 */
-		}
+	
 		return nbrSucceur;
 	}
 	/* Etant donné que une personne a droit d'effectuer juste une tache;
