@@ -1,5 +1,4 @@
-# Affectaction-de-taches-en-Java
-AFFECTATION DE TACHES A L’AIDE DE L’ALGORITHME DE FORD-FOLKERSON DANS UN GRAPHE BIPARTI
+# AFFECTATION DE TACHES A L’AIDE DE L’ALGORITHME DE FORD-FOLKERSON DANS UN GRAPHE BIPARTI
 
 Imaginons que vous dirigiez une équipe qui est appelé à réaliser un nombre quelconque de tâches et que chaque personne ou membre de l'équipe doit effectuer de préférence plus au moin une tâche.
 Etant donné que le nombre de tâche est égal au nombre de membres de l’équipe vous vous dites; Ah c’est facile !
