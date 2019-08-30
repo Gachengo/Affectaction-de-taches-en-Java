@@ -22,4 +22,5 @@ un fichier data.txt qui contient les tâches préférées pour chaque membre
 4 5  
 2 3  
 la première ligne est le nombre de tâches qui est egal au nombre de prersonnes
-les lignes suivantes ce sont les préférences de chaque personne
+les lignes suivantes ce sont les préférences de chaque personne  
+Blog : [Steven CIBAMBO](https://stevencibambo.blogspot.com/2019/07/affectation-de-taches-laide-de.html)
