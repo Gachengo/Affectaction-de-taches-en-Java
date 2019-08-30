@@ -10,3 +10,17 @@ Dans ce topic, je propose comment peut-on resoudre le problème d’affectation 
 
 Le résultat est une application faite en Java qui prend en entrée la liste des tâches souhaitées par chaque membre de l’équipe et attribue à chacun plus au moin une tâche.
 
+#Environnement
+JAVA 11
+
+#Paramètre
+
+un fichier data.txt qui contient les tâches préférées pour chaque membre
+5
+1 4 5
+2 5 1
+2
+4 5
+2 3
+la première ligne est le nombre de tâches qui est egal au nombre de prersonnes
+les lignes suivantes ce sont les préférences de chaque personne
